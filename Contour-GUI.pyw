@@ -28,8 +28,8 @@ def openFile():
     T.insert('1.0', 'Loaded ' + filename + '\n')
     return filename
 
-def dndlogdpMaxGet():
-    T.insert(END, dndlogdpMax.get())
+#def dndlogdpMaxGet():
+#    T.insert(END, dndlogdpMax.get())
 
 def is_leap_year(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
