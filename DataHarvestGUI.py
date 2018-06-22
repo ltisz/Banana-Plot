@@ -1,6 +1,6 @@
 ## -*- coding: utf-8 -*-
 ## Author:
-##		Lee Tiszenkel
+##Lee Tiszenkel
 
 import numpy as np #NumPy has genfromtxt, which we need
 import datetime #need datetime to create datetime variable type
@@ -12,13 +12,6 @@ import sys
 scriptdir = os.path.abspath(os.path.dirname(sys.argv[0]))
 os.chdir(scriptdir)
 
-#Setting the filename
-#try:
-#	filename = sys.argv[1] #Takes the first command line argument after banana.py as the filename
-#except:
-#	print "No file supplied.\n"
-#	filename = raw_input("Supply filename >")
-	
 ##RETRIEVING DATA FROM FILE##
 ##x is the time
 ##y is the particle size
@@ -43,11 +36,6 @@ def BananaPlot():
     tupleEnd = tupleStart + len(yy)
     Z=tuple(range(tupleStart,tupleEnd))
     y = np.array(yy) ##The last step made a list, so this converts it back to a numpy array for plotting
-    #print y
-    #Z = tuple(range(8,107)) #This will be the range of the columns to read, skipping colums that aren't relevant to the graph
-    #The next line grabs just the particle sizes that the CPC measures:
-    #It skips the header (18 lines), only grabs one row, and excludes the Comment line
-    #y = np.genfromtxt(filename, skip_header=18, comments='Comment', max_rows=1, delimiter=',', usecols=Z)
 
     #This grabs the full dn/dlogDPp array
     data = np.genfromtxt(filename, skip_header=dataStartLine+1, delimiter=',', usecols=Z)
@@ -57,8 +45,6 @@ def BananaPlot():
     x = np.genfromtxt(filename, dtype=str, skip_header=dataStartLine+1, delimiter=',', usecols=(1,2))
     #Join the two columns together to make a %m/%d/%y %H:%M:%S format
     x = [' '.join(t) for t in x]
-    #outFilename = 'LDMA' + re.sub('[:/ ]', '', x[0]) + '.txt'
-    #print outFilename
     #Convert them from strings to datetime objects so we can use them to plot
     try:
         x = [datetime.datetime.strptime(t, "%m/%d/%y %H:%M:%S") for t in x]
