@@ -28,9 +28,6 @@ def openFile():
     T.insert('1.0', 'Loaded ' + filename + '\n')
     return filename
 
-#def dndlogdpMaxGet():
-#    T.insert(END, dndlogdpMax.get())
-
 def is_leap_year(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
@@ -155,10 +152,7 @@ def MakeBanana():
 
 def MakeBananaPlot(dndlogdpMax):
     filename = 'temp.txt'
-    #print filename
     x,y,data = BananaPlot() ##Getting data from DataHarvest.py
-    #x2,y2 = SO2Data()
-    #dndlogdpMax = 36000 #Max value of dN/dLogDp
     colorticks = dndlogdpMax/4
 
     #Creating a matplotlib figure, specifying size in inches
@@ -167,9 +161,7 @@ def MakeBananaPlot(dndlogdpMax):
     ax.clear()
 
     #Here it is, the meat of it: makes a contour plot, range of colors is from 0 to set max with steps of 500
-    #Extend keyword makes it so any value over set max is filled in with max color
-    bananaPlot = ax.contourf(x,y,data.T+0.1,500, cmap='jet', norm=LogNorm()) #extend='max')
-    #np.arange(0, dndlogdpMax+1, 500),
+    bananaPlot = ax.contourf(x,y,data.T+0.1,500, cmap='jet', norm=LogNorm()))
     #Formatting dates to a sane format
         #We have a MAJOR (Times) and a MINOR (dates)
         #myFmt corresponds to MINOR, myFmt2 to MAJOR
@@ -195,12 +187,6 @@ def MakeBananaPlot(dndlogdpMax):
     ax.set_title('NDMA: ' + str(min(x)) + ' - ' + str(max(x)) + ' (UTC)')
     plt.show()
     plt.savefig('NDMA' + time.strftime("%m%d%Y-%H%M") + '.png', bbox_inches='tight', pad_inches=0) #Saves to banana.png
-    #fig.canvas.draw()
-
-    #canvas = FigureCanvasTkAgg(fig, master=root)
-    #plot_widget = canvas.get_tk_widget()
-
-    #plot_widget.grid(row=8,columnspan=10)
 
     
 file_list=[]
@@ -211,23 +197,6 @@ filemenu.add_command(label="Open", command=openFile)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu)
-
-#dndlogdpMax = IntVar(root)
-# dndlogdpMax.set(32000)
-
-# dndlogdpMaxMenuLabel=StringVar()
-# dndlogdpMaxMenuLabel.set("Max dN/dLogDP")
-# dndlogdpMaxMenuDir=Label(root, textvariable = dndlogdpMaxMenuLabel, height = 4)
-# dndlogdpMaxMenuDir.grid(row=0, column=0, sticky=W)
-
-#option = OptionMenu(root, dndlogdpMax, 48000, 72000, 88000, 104000, 120000, 136000, 152000)
-
-# l = range(16000,2400000,16000)
-# l = tuple(l)
-# option = Spinbox(root, textvariable=dndlogdpMax, values=l)
-# option.grid(row=0, column=1, sticky=W)
-# option.delete(0,"end")
-# option.insert(0,64000)
 
 T = Text(root, height=2, width=50)
 T.grid(row=0, column=2, columnspan=3)
