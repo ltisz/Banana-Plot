@@ -1,5 +1,5 @@
 # Banana-Plot
-Graphical interface for plotting contour ("Banana") plots of aerosol size distribution from TSI SMPS data output
+Tool for quickly for plotting contour ("Banana") plots of aerosol size distribution from TSI SMPS data output
 
 # Directions for use
 
