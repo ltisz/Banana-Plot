@@ -1,0 +1,18 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Banana-Plot
+message: >-
+  Tool for quickly for plotting contour ("Banana") plots of
+  aerosol size distribution from TSI SMPS data output
+type: software
+authors:
+  - given-names: Lee
+    family-names: Tiszenkel
+    email: lt0021@uah.edu
+    affiliation: University of Alabama at Huntsville
+    orcid: 'https://orcid.org/0000-0002-2117-8292'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.8264977
